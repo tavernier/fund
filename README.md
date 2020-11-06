@@ -1,2 +1,15 @@
-# fund
-基金, ETF, 可转债
+# umi project
+
+## Getting Started
+
+Install dependencies,
+
+```bash
+$ yarn
+```
+
+Start the dev server,
+
+```bash
+$ yarn start
+```

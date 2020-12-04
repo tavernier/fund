@@ -13,7 +13,6 @@ export interface IndexModelType {
   reducers: {
     save: Reducer<IndexModelState>;
   };
-  subscriptions: { setup: Subscription };
 }
 
 const IndexModel: IndexModelType = {
@@ -30,17 +29,6 @@ const IndexModel: IndexModelType = {
         ...state,
         ...action.payload,
       };
-    },
-  },
-  subscriptions: {
-    setup({ dispatch, history }) {
-      return history.listen(({ pathname }) => {
-        if (pathname === '/') {
-          dispatch({
-            type: 'query',
-          });
-        }
-      });
     },
   },
 };

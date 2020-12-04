@@ -1,25 +1,22 @@
 import React, { FC } from 'react';
-import { connect, IndexModelState, ConnectProps } from 'umi';
-import styles from './index.less';
+import { connect, DebtModelState } from 'umi';
+import { Button } from 'antd';
+import { Connect } from '@/models/connect';
 
-interface PageProps extends ConnectProps {
-  index: IndexModelState;
+interface PageProps extends Connect {
+  index: DebtModelState;
 }
 
 const Home: FC<PageProps> = props => {
-  fetch('/api/test').then((...args) => {
-    console.log(args);
-  });
-
   const { name } = props.index;
 
   return (
     <div>
-      <h1 className={styles.title}>Page index {name}</h1>
+      <Button type={'primary'}>111 {name}</Button>
     </div>
   );
 };
 
-export default connect(({ index }: { index: IndexModelState }) => ({
+export default connect(({ index }: Connect) => ({
   index,
 }))(Home);
